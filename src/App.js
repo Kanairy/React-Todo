@@ -40,6 +40,12 @@ class App extends Component {
     this.setState({todos: store.todos});
   }
 
+  edit(todo, val) {
+    todo.title = val;
+    this.setState({todos: store.todos});
+    console.log(store);
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,9 +58,9 @@ class App extends Component {
         </p>
         <TodoForm addTodo={this.addTodo.bind(this)}/>
         <TodoList removeTodo={this.removeTodo.bind(this)} 
-                  clickHandler={this.toggleComplete.bind(this)} 
-                  todos={this.state.todos}
-                  />
+                  clickHandler={this.toggleComplete.bind(this)}
+                  edit={this.edit.bind(this)} 
+                  todos={this.state.todos} />
       </div>
     );
   }
