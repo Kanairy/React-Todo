@@ -43,7 +43,6 @@ class App extends Component {
   edit(todo, val) {
     todo.title = val;
     this.setState({todos: store.todos});
-    console.log(store);
   }
 
   render() {
