@@ -11,7 +11,6 @@ var store = {
   todos: []
 };
 
-
 class App extends Component {
 
   constructor() {
