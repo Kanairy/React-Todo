@@ -6,7 +6,7 @@ class TodoList extends Component {
     var todos = this.props.todos;
     return (
       <ul>
-        {todos.map((e, i) => <Todo edit={this.props.edit} click={this.props.clickHandler} removeTodo={this.props.removeTodo} todo={e} key={i}/>)}
+        {todos.map((e) => <Todo edit={this.props.edit} click={this.props.clickHandler} removeTodo={this.props.removeTodo} todo={e} key={e.timeAdded}/>)}
       </ul>
     )
   }

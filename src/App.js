@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-//custom components
+//components
 
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 
-var store = {
-  todos: []
-};
+
+if (!localStorage.getItem('todos')) {
+  var store = {
+    todos: []
+  };  
+} else {
+  var store = JSON.parse(localStorage.getItem('todos'));
+}
+
 
 class App extends Component {
 
@@ -33,15 +39,19 @@ class App extends Component {
   }
 
   removeTodo(todo) {
-    store.todos = store.todos.filter((e) => {
-      return e.timeAdded !== todo.timeAdded;
-    });
+    store.todos = store.todos.filter((e) => e.timeAdded !== todo.timeAdded);
     this.setState({todos: store.todos});
   }
 
   edit(todo, val) {
     todo.title = val;
     this.setState({todos: store.todos});
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('todos', JSON.stringify(store));
+    console.log('localstorage fed!');
+    console.log(JSON.parse(localStorage.getItem('todos')));
   }
 
   render() {
