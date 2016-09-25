@@ -27,7 +27,7 @@ class Todo extends Component {
     }
 
     return (
-      <li className={this.props.todo.complete ? 'complete': 'incomplete'}>
+      <li className={this.props.todo.complete ? 'Todo-complete': 'Todo-incomplete'}>
         {main}
         <span>{(new Date(this.props.todo.timeAdded)).toString()}</span>
         <button onClick={() => this.props.removeTodo(this.props.todo)}>delete</button>

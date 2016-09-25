@@ -3,12 +3,18 @@ import Todo from './Todo';
 
 class TodoList extends Component {
   render() {
+    
     var todos = this.props.todos;
+
     return (
       <ul>
-        {todos.map((e) => <Todo edit={this.props.edit} click={this.props.clickHandler} removeTodo={this.props.removeTodo} todo={e} key={e.timeAdded}/>)}
+        {todos.map((todo) => {
+          return <Todo edit={this.props.edit} 
+                       click={this.props.clickHandler} 
+                       removeTodo={this.props.removeTodo} todo={todo} key={todo.timeAdded} />
+        })}
       </ul>
-    )
+    );
   }
 }
 

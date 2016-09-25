@@ -8,14 +8,7 @@ import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 
 
-if (!localStorage.getItem('todos')) {
-  var store = {
-    todos: []
-  };  
-} else {
-  var store = JSON.parse(localStorage.getItem('todos'));
-}
-
+var store = JSON.parse(localStorage.getItem('todos')) || { todos: [] };
 
 class App extends Component {
 
