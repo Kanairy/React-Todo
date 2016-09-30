@@ -8,10 +8,10 @@ class TodoList extends Component {
 
     return (
       <ul>
-        {todos.map((todo) => {
+        {todos.map((todo, i) => {
           return <Todo edit={this.props.edit} 
-                       click={this.props.clickHandler} 
-                       removeTodo={this.props.removeTodo} todo={todo} key={todo.timeAdded} />
+                       click={() => this.props.clickHandler(todo.get('timeAdded'))} 
+                       removeTodo={this.props.removeTodo} todo={todo} key={todo.get('timeAdded')} />
         })}
       </ul>
     );
